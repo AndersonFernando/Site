@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Nosso Dia 15</title>
+    <style>
+        @keyframes floatingHearts {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fce4ec, #f1c6d8);
+            overflow: hidden;
+            position: relative;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .image-container {
+            width: 400px;
+            height: 300px;
+            border: 5px solid #d81b60;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 0 25px rgba(216, 27, 96, 0.6);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #ffffff;
+        }
+
+        p {
+            color: #880e4f;
+            font-size: 1.1em;
+            max-width: 600px;
+            text-align: center;
+            line-height: 1.5;
+            margin: 0 20px;
+            animation: fadeIn 3s ease-in-out 0.5s both;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #f50057;
+            transform: rotate(45deg);
+            animation: floatingHearts 7s linear infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #f50057;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+
+        #timer {
+            color: #d81b60;
+            font-size: 1.3em;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out 0.3s both;
+            display: none; /* Esconde o timer inicialmente */
+        }
+
+        .vocaroo-player-container {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            background-color: #fff;
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            display: none; /* Esconde inicialmente */
+        }
+
+        .vocaroo-player-container iframe {
+            border-radius: 15px;
+            width: 100%;
+            height: 60px;
+            border: none;
+        }
+
+        .vocaroo-link {
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+            display: block;
+            margin-top: 5px;
+            text-decoration: none;
+        }
+
+        .vocaroo-link:hover {
+            color: #d81b60;
+        }
+
+        #playButton {
+            padding: 10px 20px;
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        #playButton:hover {
+            background-color: #c2185b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feliz nosso dia 15, meu amor ❤️❤️</h1>
+    <div class="image-container">
+        <img src="https://i.imgur.com/8I1By5t.jpeg" alt="Nossa Foto">
+    </div>
+    <p>7 meses ao lado do amor da minha vida, da pessoa que transforma meus dias com um simples sorriso.
+        Estar com você faz o tempo passar de um jeito que não consigo explicar. Cada momento ao seu lado é perfeito e inesquecível.
+        Seu jeito ilumina tudo ao seu redor, e os seus olhinhos fazem tudo parecer mais bonito.
+        Eu te amooo muitooo meu amor. Sou imensamente grato por ter você na minha vida. ❤️
+    </p>
+
+    <div id="timer"></div>
+
+    <button id="playButton">Click aqui para uma surpresinha ❤️</button>
+
+    <div class="vocaroo-player-container" id="playerContainer">
+        <iframe id="vocarooPlayer" src="https://vocaroo.com/embed/18GeldNk3y1D?autoplay=1" allow="autoplay"></iframe>
+        <a href="https://voca.ro/18GeldNk3y1D" class="vocaroo-link" target="_blank">Ver no Vocaroo &gt;&gt;</a>
+    </div>
+
+    <script>
+        document.getElementById("playButton").addEventListener("click", function () {
+            document.getElementById("playerContainer").style.display = "block";
+            document.getElementById("timer").style.display = "block";
+            document.getElementById("playButton").style.display = "none";
+            updateTimer(); // Chama imediatamente para não esperar 1 segundo
+        });
+    </script>
+
+    <script>
+        function updateTimer() {
+            const startDate = new Date("2024-10-15T00:00:00");
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerText =
+                `Juntinhos há ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos ❤️`;
+        }
+
+        setInterval(updateTimer, 1000);
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 5 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
